@@ -1,34 +1,14 @@
 import type { NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
 
 import logo from '@assets/logo.svg';
 import CreateAdBanner from '@components/CreateAdBanner';
 import GameCard from '@components/GameCard';
-import api from 'services/api';
-
-type GameProps = {
-  id: string;
-  title: string;
-  bannerUrl: string;
-  _count: {
-    ads: number;
-  };
-};
+import { useGames } from '@hooks/useGames';
 
 const Home: NextPage = () => {
-  const [games, setGames] = useState<GameProps[]>([]);
-
-  useEffect(() => {
-    async function loadGames() {
-      const { data } = await api.get<GameProps[]>('games');
-      setGames(data);
-    }
-
-    loadGames();
-  }, []);
-
+  const games = useGames();
   return (
     <>
       <NextSeo title="NLW eSports" description="NLW eSports" />
@@ -43,7 +23,7 @@ const Home: NextPage = () => {
           está aqui.
         </h1>
 
-        <div className="grid grid-cols-6 gap-6 mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-6 mt-16">
           {games.map((game) => (
             <GameCard
               key={game.id}

@@ -1,19 +1,26 @@
-import { InputHTMLAttributes, LegacyRef, forwardRef } from 'react';
+import * as ReactCheckbox from '@radix-ui/react-checkbox';
+import { Check } from 'phosphor-react';
+import { Ref, forwardRef } from 'react';
 
-type CheckboxProps = InputHTMLAttributes<HTMLInputElement> & {};
+type CheckboxProps = ReactCheckbox.CheckboxProps & {
+  onChange: (event: any) => void;
+};
 
-const Checkbox = (
-  { ...rest }: CheckboxProps,
-  ref: LegacyRef<HTMLInputElement> | undefined,
-) => {
+const Checkbox = ({ ...rest }: CheckboxProps, ref: Ref<any> | undefined) => {
   return (
-    <input
-      {...rest}
+    <ReactCheckbox.Root
+      checked={rest.checked}
+      onCheckedChange={rest.onChange}
+      className="w-6 h-6 p-1 rounded bg-zinc-900 items-center"
       ref={ref}
-      type="checkbox"
-      placeholder="Selecione o game que deseja jogar"
-      className="bg-zinc-900 py-3 px-4 rounded text-sm placeholder:text-zinc-500"
-    />
+      id={rest.name}
+      defaultValue={rest.value}
+      {...rest}
+    >
+      <ReactCheckbox.Indicator>
+        <Check className="w-4 h-4 text-emerald-400" />
+      </ReactCheckbox.Indicator>
+    </ReactCheckbox.Root>
   );
 };
 
