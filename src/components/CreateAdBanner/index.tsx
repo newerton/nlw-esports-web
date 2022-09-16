@@ -6,7 +6,7 @@ import CreateAdModal from '@components/CreateAdModal';
 const CreateAdBanner = () => {
   return (
     <Dialog.Root>
-      <div className="pt-1 rounded-lg bg-nlw-gradient mt-8 self-stretch mx-4">
+      <div className="pt-1 rounded-lg bg-nlw-gradient mt-8 self-stretch">
         <div className="bg-[#2a2634] px-8 py-6 rounded-lg text-center md:text-left md:flex md:justify-between items-center">
           <div className="mb-8 md:mb-0">
             <div className="text-white font-black text-2xl">

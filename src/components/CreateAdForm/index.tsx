@@ -145,7 +145,6 @@ const CreateAdForm = () => {
               name="weekDays"
               control={control}
               render={({ field }) => {
-                console.log(field.value);
                 return (
                   <ToggleGroup.Root
                     type="multiple"

@@ -12,10 +12,10 @@ const Home: NextPage = () => {
   return (
     <>
       <NextSeo title="NLW eSports" description="NLW eSports" />
-      <div className="max-w-[1344px] mx-auto flex flex-col items-center my-20">
+      <div className="max-w-[1344px] mx-auto flex flex-col items-center my-20 px-4">
         <Image src={logo} alt="logo" />
 
-        <h1 className="text-6xl text-white font-black mt-20">
+        <h1 className="text-center text-6xl text-white font-black mt-20">
           Seu{' '}
           <span className="bg-nlw-gradient text-transparent bg-clip-text">
             duo
